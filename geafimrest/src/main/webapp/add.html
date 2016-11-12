@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="GeafimApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/angular-base64.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/appService.js"></script>
+
+</head>
+<body ng-controller="GeafimCtrlAdd">
+<div align="center">
+<h1>Add Registry Type</h1>
+<br>
+	<table>
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-show="insertOK">
+				<td>{{regType.ID}}</td>
+				<td>{{regType.description}}</td>
+			</tr>
+			<tr>
+				<td>.</td>
+				<td><input type="text" ng-model="description"></td>
+			</tr>
+			<tr>
+				<td>.</td>
+				<td><input type="submit" ng-click="addRegType()"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<a href="index.html">Home</a>	
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="GeafimApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/angular-base64.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/appService.js"></script>
+
+</head>
+<!-- <body ng-controller="GeafimCtrlView" ng-init="viewRegistryType()"> -->
+<body ng-controller="GeafimCtrlEdit">
+<div align="center">
+<h1>Edit Registry Type</h1>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!--  <tr ng-repeat="regtype in allRegistryType">-->
+			<tr ng-repeat="regtype in viewRegistryType">
+				<td>{{regtype.ID}}</td>
+				<td ng-if="regtype.ID != editRTidx">{{regtype.description}}</td>
+				<td ng-if="regtype.ID == editRTidx"><input type="text" ng-model="regtype.description"></td>
+				<td ng-if="regtype.ID != editRTidx"><button ng-click="toggleEditMode(regtype.ID)">Edit</button></td>
+				<td ng-if="regtype.ID == editRTidx"><button ng-click="editRegType(regtype.ID,regtype.description)">Save</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br>
+<a href="index.html">Home</a>
+</div>
+</body>
+</html>

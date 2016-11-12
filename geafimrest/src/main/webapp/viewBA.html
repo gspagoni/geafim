@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="GeafimApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/angular-base64.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/appServiceBasicAuth.js"></script>
+
+</head>
+<!-- <body ng-controller="GeafimCtrlView" ng-init="viewRegistryType()"> -->
+<body ng-controller="GeafimCtrlViewBA as ctrlViewBA">
+	<div align="center">
+		<h1>View Registry Type Basic Authentication</h1>
+		<br>
+		<div>
+			User: <input type="text" ng-model="ctrlViewBA.user"><br>
+			Pass: <input type="password" ng-model="ctrlViewBA.pass"><br>
+			<button ng-click="ctrlViewBA.getRegTypeBA(ctrlViewBA.user,ctrlViewBA.pass)">Get View</button><br><br>
+			<span ng-show="ctrlViewBA.error">{{ctrlViewBA.errorMessage}}</span>
+		</div>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<td>Id</td>
+						<td>Description</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!--  <tr ng-repeat="regtype in allRegistryType">-->
+					<tr ng-repeat="regtype in ctrlViewBA.viewRegistryType">
+						<td>{{regtype.ID}}</td>
+						<td>{{regtype.description}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br> <a href="index.html">Home</a>
+	</div>
+</body>
+</html>
