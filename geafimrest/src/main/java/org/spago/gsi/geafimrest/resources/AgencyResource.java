@@ -16,35 +16,35 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import org.spago.gsi.geafimrest.model.AgencyType;
-import org.spago.gsi.geafimrest.service.AgencyTypeService;
+import org.spago.gsi.geafimrest.model.Agency;
+import org.spago.gsi.geafimrest.service.AgencyService;
 
-@Path("/agencytype")
+@Path("/agency")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)	
 
-public class AgencyTypeResource {
+public class AgencyResource {
 	
-	AgencyTypeService agTypeService = new AgencyTypeService();
+	AgencyService agTypeService = new AgencyService();
 	
 	
 	@GET
-	public List<AgencyType> getAgencyType()
+	public List<Agency> getAgency()
 	{
-		return agTypeService.getAllAgencyType();
+		return agTypeService.getAllAgency();
 	}
 
 	@GET
 	@Path("/{agId}")
-	public AgencyType getAgencyTypeById(@PathParam("agId") int id)
+	public Agency getAgencyById(@PathParam("agId") int id)
 	{		
-		return agTypeService.getAgencyTypeById(id);
+		return agTypeService.getAgencyById(id);
 	}
 	
 	@POST
-	public Response addAgencyType(AgencyType agType, @Context UriInfo uriInfo)
+	public Response addAgency(Agency agType, @Context UriInfo uriInfo)
 	{
-		AgencyType newagType = agTypeService.addAgencyType(agType);
+		Agency newagType = agTypeService.addAgency(agType);
 		String newId = String.valueOf(newagType.getID());
 		URI uri = uriInfo.getAbsolutePathBuilder().path(newId).build();
 		return Response.created(uri)
@@ -54,17 +54,17 @@ public class AgencyTypeResource {
 	
 	@PUT
 	@Path("/{agId}")
-	public AgencyType updateAgencyType(@PathParam("agId") int id, AgencyType agType)
+	public Agency updateAgency(@PathParam("agId") int id, Agency agType)
 	{
 		agType.setID(id);
-		return agTypeService.updateAgencyType(agType);
+		return agTypeService.updateAgency(agType);
 	}
 	
 	@DELETE
 	@Path("/{agId}")
-	public void deleteAgencyType(@PathParam("agId") int id)
+	public void deleteAgency(@PathParam("agId") int id)
 	{
-		agTypeService.deleteAgencyTypeById(id);		
+		agTypeService.deleteAgencyById(id);		
 	}
 	
 	

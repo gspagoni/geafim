@@ -3,7 +3,7 @@ package org.spago.gsi.geafimrest.model;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class AgencyType {
+public class Agency {
 
 	private int ID;
 	private String AgencyName;
