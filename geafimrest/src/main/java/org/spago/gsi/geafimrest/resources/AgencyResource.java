@@ -25,46 +25,46 @@ import org.spago.gsi.geafimrest.service.AgencyService;
 
 public class AgencyResource {
 	
-	AgencyService agTypeService = new AgencyService();
+	AgencyService agencyService = new AgencyService();
 	
 	
 	@GET
 	public List<Agency> getAgency()
 	{
-		return agTypeService.getAllAgency();
+		return agencyService.getAllAgency();
 	}
 
 	@GET
 	@Path("/{agId}")
 	public Agency getAgencyById(@PathParam("agId") int id)
 	{		
-		return agTypeService.getAgencyById(id);
+		return agencyService.getAgencyById(id);
 	}
 	
 	@POST
-	public Response addAgency(Agency agType, @Context UriInfo uriInfo)
+	public Response addAgency(Agency agency, @Context UriInfo uriInfo)
 	{
-		Agency newagType = agTypeService.addAgency(agType);
-		String newId = String.valueOf(newagType.getID());
+		Agency newagency = agencyService.addAgency(agency);
+		String newId = String.valueOf(newagency.getID());
 		URI uri = uriInfo.getAbsolutePathBuilder().path(newId).build();
 		return Response.created(uri)
-						.entity(newagType)
+						.entity(newagency)
 						.build();
 	}
 	
 	@PUT
 	@Path("/{agId}")
-	public Agency updateAgency(@PathParam("agId") int id, Agency agType)
+	public Agency updateAgency(@PathParam("agId") int id, Agency agency)
 	{
-		agType.setID(id);
-		return agTypeService.updateAgency(agType);
+		agency.setID(id);
+		return agencyService.updateAgency(agency);
 	}
 	
 	@DELETE
 	@Path("/{agId}")
 	public void deleteAgency(@PathParam("agId") int id)
 	{
-		agTypeService.deleteAgencyById(id);		
+		agencyService.deleteAgencyById(id);		
 	}
 	
 	
