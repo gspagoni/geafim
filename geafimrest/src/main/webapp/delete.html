@@ -7,11 +7,12 @@
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/angular-base64.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/appService.js"></script>
+<script type="text/javascript" src="js/appServiceRegistry.js"></script>
+<script type="text/javascript" src="js/appControllerRegistry.js"></script>
 
 </head>
 <!-- <body ng-controller="GeafimCtrlView" ng-init="viewRegistryType()"> -->
-<body ng-controller="GeafimCtrlDel">
+<body ng-controller="GeafimCtrlRegistryDel as ctrl">
 <div align="center">
 <h1>Delete Registry Type</h1>
 <div>
@@ -24,10 +25,10 @@
 		</thead>
 		<tbody>
 			<!--  <tr ng-repeat="regtype in allRegistryType">-->
-			<tr ng-repeat="regtype in viewRegistryType">
+			<tr ng-repeat="regtype in ctrl.viewRegistryType">
 				<td>{{regtype.ID}}</td>
 				<td>{{regtype.description}}</td>
-				<td><button ng-click="deleteRegType(regtype.ID,$index)">Delete</button></td>
+				<td><button ng-click="ctrl.deleteRegType(regtype.ID,$index)">Delete</button></td>
 			</tr>
 		</tbody>
 	</table>

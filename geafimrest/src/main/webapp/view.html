@@ -7,11 +7,12 @@
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/angular-base64.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/appService.js"></script>
+<script type="text/javascript" src="js/appServiceRegistry.js"></script>
+<script type="text/javascript" src="js/appControllerRegistry.js"></script>
 
 </head>
 <!-- <body ng-controller="GeafimCtrlView" ng-init="viewRegistryType()"> -->
-<body ng-controller="GeafimCtrlView">
+<body ng-controller="GeafimCtrlRegistryView as ctrl">
 <div align="center">
 <h1>View Registry Type</h1>
 <div>
@@ -24,7 +25,7 @@
 		</thead>
 		<tbody>
 			<!--  <tr ng-repeat="regtype in allRegistryType">-->
-			<tr ng-repeat="regtype in viewRegistryType">
+			<tr ng-repeat="regtype in ctrl.viewRegistryType">
 				<td>{{regtype.ID}}</td>
 				<td>{{regtype.description}}</td>
 			</tr>

@@ -7,10 +7,11 @@
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/angular-base64.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/appService.js"></script>
+<script type="text/javascript" src="js/appServiceRegistry.js"></script>
+<script type="text/javascript" src="js/appControllerRegistry.js"></script>
 
 </head>
-<body ng-controller="GeafimCtrlAdd">
+<body ng-controller="GeafimCtrlRegistryAdd as ctrl">
 <div align="center">
 <h1>Add Registry Type</h1>
 <br>
@@ -22,17 +23,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-show="insertOK">
-				<td>{{regType.ID}}</td>
-				<td>{{regType.description}}</td>
+			<tr ng-show="ctrl.insertOK">
+				<td>{{ctrl.regType.ID}}</td>
+				<td>{{ctrl.regType.description}}</td>
 			</tr>
 			<tr>
 				<td>.</td>
-				<td><input type="text" ng-model="description"></td>
+				<td><input type="text" ng-model="ctrl.description"></td>
 			</tr>
 			<tr>
 				<td>.</td>
-				<td><input type="submit" ng-click="addRegType()"></td>
+				<td><input type="submit" ng-click="ctrl.addRegType()"></td>
 			</tr>
 		</tbody>
 	</table>

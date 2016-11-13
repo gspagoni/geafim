@@ -1,12 +1,12 @@
 /**
- * 
+ * Service for Registry Type
  */
 (function() {
 	"use strict";
 	
 	var app = angular.module("GeafimApp");
 
-	app.service("GeafimService", function($http) {
+	app.service("GeafimServiceRegistry", function($http) {
 		var self = this;
 
 		//Read all Registry Type
@@ -50,9 +50,7 @@
 				method : 'DELETE',
 				url : "webapi/registrytype/" + id
 			})
-			//.then(function(response) {
-			//	return response.data
-			//});
+
 			return promise;
 
 		}
