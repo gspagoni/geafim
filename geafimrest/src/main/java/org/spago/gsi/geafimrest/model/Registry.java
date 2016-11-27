@@ -1,7 +1,6 @@
 package org.spago.gsi.geafimrest.model;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.text.SimpleDateFormat;
 import java.sql.Date;
 
 @XmlRootElement
